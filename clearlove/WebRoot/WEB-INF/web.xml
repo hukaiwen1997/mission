@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>clearlove</display-name>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+  
+   <servlet>
+        <servlet-name>dispatcher</servlet-name><!--定义一个servlet的名称 ，同时要求在WEB—INF目录下有一个 xxx-servlet.xml文件 -->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class><!--固定用法  -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name><!-- 对应上面的servlet的name -->
+        <url-pattern>/</url-pattern><!-- 匹配url样式，/表示匹配任何样式 -->
+    </servlet-mapping>
+</web-app>
