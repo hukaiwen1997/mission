@@ -1,24 +1,28 @@
 package Dao;
 
 import java.util.List;
+
+import javax.annotation.Resource;
 import javax.management.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
+
 import entity.Task;
 @Repository
 public class TaskDao {
 	
-	/*初始化Hibernate，创建SessionFactory实例*/
+	/*初始化Hibernate，创建SessionFactory实例
 	public static SessionFactory sessionFactory;
 	  static{
 		  try{
 			  sessionFactory = new Configuration().configure().buildSessionFactory();	  
 		  }catch(RuntimeException e){e.printStackTrace();throw e;}
 	  }
-	  /*查询所有的Task对象*/
+	  查询所有的Task对象
 	  @SuppressWarnings("unchecked")
 	public List<Task> findAllTasks(){
 		  Session session = sessionFactory.openSession();
@@ -39,7 +43,7 @@ public class TaskDao {
 		  }
 		  return ((org.hibernate.Query) query).list();
 	   }
-	  /*持久化一个Task对象*/
+	  持久化一个Task对象
 	  public void saveTask(Task task){
 		  Session session = sessionFactory.openSession();
 		  Transaction tx =null;
@@ -57,7 +61,7 @@ public class TaskDao {
 		  }
 	  }
 	  
-	  /*按照主键值加载一个Task对象*/
+	  按照主键值加载一个Task对象
 	  public Task loadTaskById(Integer task_id){
 		  Session session = sessionFactory.openSession();
 		  Transaction tx =null;
@@ -76,7 +80,7 @@ public class TaskDao {
 		  }
 		  return C;
 	  }
-	  /*删除Task对象*/
+	  删除Task对象
 	  public void deleteTaskById(Integer task_id){
 		  Session session = sessionFactory.openSession();
 		  Transaction tx =null;
@@ -93,8 +97,8 @@ public class TaskDao {
 		  }finally{
 			  session.close();
 		  }
-	  }
-	/*@Resource private SessionFactory sessionFactory;
+	  }*/
+	@Resource private SessionFactory sessionFactory;
 	private Session getSession(){
 		return sessionFactory.getCurrentSession();
 	}
@@ -118,5 +122,5 @@ public class TaskDao {
     public Task getTaskById(Integer id){
     	return(Task)this.getSession().createQuery("from Task where id = ?")
 	    .setParameter(0, id).uniqueResult();
-    }*/
+    }
 }

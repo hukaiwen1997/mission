@@ -1,24 +1,28 @@
 package Dao;
 
 import java.util.List;
+
+import javax.annotation.Resource;
 import javax.management.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
+
 import entity.Tag;
 
 @Repository
 public class TagDao {
-	/*初始化Hibernate，创建SessionFactory实例*/
+	/*初始化Hibernate，创建SessionFactory实例
 	public static SessionFactory sessionFactory;
 	  static{
 		  try{
 			  sessionFactory = new Configuration().configure().buildSessionFactory();	  
 		  }catch(RuntimeException e){e.printStackTrace();throw e;}
 	  }
-	  /*查询所有的Project对象，然后调用printProject（）方法打印project对象信息*/
+	  查询所有的Project对象，然后调用printProject（）方法打印project对象信息
 	  @SuppressWarnings("unchecked")
 	public List<Tag> findAllTags(){
 		  Session session = sessionFactory.openSession();
@@ -39,7 +43,7 @@ public class TagDao {
 		  }
 		  return ((org.hibernate.Query) query).list();
 	   }
-	  /*持久化一个project对象*/
+	  持久化一个project对象
 	  public void saveTag(Tag tag){
 		  Session session = sessionFactory.openSession();
 		  Transaction tx =null;
@@ -57,7 +61,7 @@ public class TagDao {
 		  }
 	  }
 	  
-	  /*按照主键值加载一个project对象*/
+	  按照主键值加载一个project对象
 	  public Tag loadTagById(Integer tag_id){
 		  Session session = sessionFactory.openSession();
 		  Transaction tx =null;
@@ -76,7 +80,7 @@ public class TagDao {
 		  }
 		  return C;
 	  }
-	  /*删除Tag对象*/
+	  删除Tag对象
 	  public void deleteTagById(Integer tag_id){
 		  Session session = sessionFactory.openSession();
 		  Transaction tx =null;
@@ -95,10 +99,10 @@ public class TagDao {
 		  }
 	  }
 	
+	*/
 	
 	
-	
-	/*@Resource private SessionFactory sessionFactory;
+	@Resource private SessionFactory sessionFactory;
 	private Session getSession(){
 		return sessionFactory.getCurrentSession();
 	}
@@ -115,6 +119,6 @@ public class TagDao {
 	}
 	public Tag getTagById(Integer id){
 		return(Tag)this.getSession().createQuery("from Tag where id = ?")
-			    .setParameter(0, id).uniqueResult();
-	}*/
+		    .setParameter(0, id).uniqueResult();
+	}
 }

@@ -1,13 +1,18 @@
 package service;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import entity.Project;
+import entity.Task;
 import Dao.ProjectDao;
+import Dao.TaskDao;
 
 @Service
 public class ProjectService {
-    ProjectDao projectDao = new ProjectDao();
+    /*ProjectDao projectDao = new ProjectDao();
 	@SuppressWarnings("unchecked")
 	public List<Project>getAllProjects() {
 		@SuppressWarnings("rawtypes")
@@ -29,5 +34,20 @@ public class ProjectService {
     }
     public Project getProjectById(Integer id){
     	return projectDao.loadProjectById(id);
-    }
+    }*/
+	@Autowired ProjectDao projectDao;
+	public List<Project>getProjects(){
+		return projectDao.getProjects();
+	}
+	public void addProject(Project project){ 
+		projectDao.addProject(project);
+		
+	}
+	public void deleteProjectById(Integer id){
+		projectDao.deleteProjectById(id);
+	}
+	public Project getProjectById(Integer id){
+		return projectDao.getProjectById(id);
+	}
+	
 }

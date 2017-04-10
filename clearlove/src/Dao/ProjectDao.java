@@ -3,24 +3,28 @@ package Dao;
 
 
 import java.util.List;
+
+import javax.annotation.Resource;
 import javax.management.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
+
 import entity.Project;
 
 @Repository
 public class ProjectDao {
-    /*初始化Hibernate，创建SessionFactory实例*/
+   /* 初始化Hibernate，创建SessionFactory实例
 	public static SessionFactory sessionFactory;
 	  static{
 		  try{
 			  sessionFactory = new Configuration().configure().buildSessionFactory();	  
 		  }catch(RuntimeException e){e.printStackTrace();throw e;}
 	  }
-	  /*查询所有的Project对象，然后调用printProject（）方法打印project对象信息*/
+	  查询所有的Project对象，然后调用printProject（）方法打印project对象信息
 	  @SuppressWarnings("unchecked")
 	public List<Project> findAllProjects(){
 		  Session session = sessionFactory.openSession();
@@ -41,7 +45,7 @@ public class ProjectDao {
 		  }
 		  return ((org.hibernate.Query) query).list();
 	   }
-	  /*持久化一个project对象*/
+	  持久化一个project对象
 	  public void saveProject(Project project){
 		  Session session = sessionFactory.openSession();
 		  Transaction tx =null;
@@ -59,7 +63,7 @@ public class ProjectDao {
 		  }
 	  }
 	  
-	  /*按照主键值加载一个project对象*/
+	  按照主键值加载一个project对象
 	  public Project loadProjectById(Integer project_id){
 		  Session session = sessionFactory.openSession();
 		  Transaction tx =null;
@@ -78,7 +82,7 @@ public class ProjectDao {
 		  }
 		  return C;
 	  }
-	  /*删除Project对象*/
+	  删除Project对象
 	  public void deleteProjectById(Integer project_id){
 		  Session session = sessionFactory.openSession();
 		  Transaction tx =null;
@@ -95,9 +99,9 @@ public class ProjectDao {
 		  }finally{
 			  session.close();
 		  }
-	  }
+	  }*/
 	  
-	/*@Resource private SessionFactory sessionFactory;
+	@Resource private SessionFactory sessionFactory;
 	private Session getSession(){
 		return sessionFactory.getCurrentSession();
 	}
@@ -115,5 +119,5 @@ public class ProjectDao {
 	public Project getProjectById(Integer id){
 		return(Project)this.getSession().createQuery("from Project where id = ?")
 			    .setParameter(0, id).uniqueResult();
-	}*/
+	}
 }

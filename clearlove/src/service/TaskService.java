@@ -1,12 +1,16 @@
 package service;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import Dao.TaskDao;
+import entity.Project;
 import entity.Task;
 @Service
 public class TaskService {
-	TaskDao taskDao = new TaskDao();
+	/*TaskDao taskDao = new TaskDao();
 	@SuppressWarnings("unchecked")
 	public List<Task>getAllTasks() {
 		@SuppressWarnings("rawtypes")
@@ -28,7 +32,24 @@ public class TaskService {
     }
     public Task getTaskById(Integer id){
     	return taskDao.loadTaskById(id);
-    }
+    }*/
     
-
+@Autowired private TaskDao taskDao;
+public List<Task>getTasks(){
+	return taskDao.getTasks();
+}
+public void addTask(Task task){ 
+	taskDao.addTask(task);   
+}
+public void deleteTaskById(Integer id){
+	taskDao.deleteTaskById(id);
+	
+	
+}
+public void updateTask(Task task){ 
+	taskDao.updateTask(task);
+}
+public Task getTaskById(Integer id){
+	return taskDao.getTaskById(id);
+}
 }

@@ -14,7 +14,7 @@ public class Project {
 	  @Id
 	  @GeneratedValue
 	  private int id;
-      private String project;
+      private String projectName;
     
      
   	 
@@ -25,13 +25,15 @@ public class Project {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public String getProject() {
-		return project;
+
+	public String getProjectName() {
+		return projectName;
 	}
 
-	public void setProject(String project) {
-		this.project = project;
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
+	
+	
       
 }

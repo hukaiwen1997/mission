@@ -5,6 +5,8 @@ package controller;
 import java.util.List;
 
 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +19,13 @@ import service.ProjectService;
 @Controller
 @RequestMapping(value="/Project")
 public class ProjectController {
-	ProjectService projectService=new ProjectService();
+	@Autowired
+	ProjectService projectService;
 	
 	@RequestMapping(value="/getProjects")
 	@ResponseBody
 	public List<Project>getProjects(){
-		return projectService.getAllProjects();
+		return projectService.getProjects();
 	}
 	
 	@RequestMapping(value="/addProject")
@@ -31,7 +34,7 @@ public class ProjectController {
 			ModelMap modelmap
 			){
 		   Project project = new Project();
-		   project.setProject(proJect);
+		   project.setProjectName(proJect);
 		   projectService.addProject(project);
 	}
 	@RequestMapping(value="/deleteProjectById")

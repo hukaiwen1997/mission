@@ -8,7 +8,7 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
-  
+
    <servlet>
         <servlet-name>dispatcher</servlet-name><!--定义一个servlet的名称 ，同时要求在WEB—INF目录下有一个 xxx-servlet.xml文件 -->
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class><!--固定用法  -->

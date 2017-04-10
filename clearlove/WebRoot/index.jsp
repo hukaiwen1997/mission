@@ -17,36 +17,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-  
-   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-	<script src="/n.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-	<body>
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script src="/n.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	</body>
-   <%--bootstrap 配置--%>
-    <link rel="stylesheet" href="/n.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="/n.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="/n.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+
 
 </head>
 
   
   <body>
-  <div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span6">
-		</div>
-		<div class="span4">
-			<form class="form-search form-inline">
-				<input class="input-medium search-query" type="text" /> <button type="submit" class="btn">查找</button>
-			</form>
-		</div>
-		<div class="span2">
-			 <button class="btn" type="button">按钮</button>
-		</div>
-	</div>
-</div>
-    
+  <div>
+  <form action="/clearlove/Task/addTask">
+    	<input type="text" name="discriptionOfTask"/> <input type="text" name="project"/> 
+      <select>
+      <form action="/clearlove/Project/getProjects">
+     
+      <option value="看书">看书</option>
+      <option value="旅游" selected="selected">旅游</option>
+      <option value="运动">运动</option>
+      <option value="购物">购物</option>
+      </select>   <input type="submit" value="submit"/>
+      </form>
+    </form>
+  </div>
   </body>
 </html>

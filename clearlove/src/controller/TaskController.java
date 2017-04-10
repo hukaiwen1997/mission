@@ -20,7 +20,7 @@ public class TaskController {
 	@RequestMapping(value="/getTasks")
 	@ResponseBody
 	public List<Task>getTasks(){
-		return taskService.getAllTasks();
+		return taskService.getTasks();
 	}
 	@RequestMapping(value="/addTask")
 	public void addTask(
